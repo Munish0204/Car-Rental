@@ -8,15 +8,15 @@ const {
   deleteCar
 } = require('../controllers/carController');
 
-const { protect, isAdmin } = require('../middlewares/authMiddleware');
+const { protect } = require('../middlewares/authMiddleware'); // for user access
 
-// Public routes
+// Public access
 router.get('/', getAllCars);
 router.get('/:id', getCarById);
 
-// Admin routes
-router.post('/', protect, isAdmin, createCar);
-router.put('/:id', protect, isAdmin, updateCar);
-router.delete('/:id', protect, isAdmin, deleteCar);
+// Authenticated users can add/update/delete cars
+router.post('/', protect, createCar);
+router.put('/:id', protect, updateCar);
+router.delete('/:id', protect, deleteCar);
 
 module.exports = router;

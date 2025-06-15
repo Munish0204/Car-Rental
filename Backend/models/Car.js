@@ -7,6 +7,11 @@ const carSchema = new mongoose.Schema({
   pricePerDay: Number,
   image: String,
   available: { type: Boolean, default: true },
+  fuelType: {
+    type: String,
+    enum: ['petrol', 'diesel', 'ev'],
+    required: true
+  }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Car', carSchema);
