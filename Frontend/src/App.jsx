@@ -1,22 +1,30 @@
-import React from "react";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './Components/Header';
+import Home from './Pages/Home/Home';
+import Login from './Pages/Login/Login';
+import Registration from './Pages/Registration/Registration';
+import CarDetails from './Pages/CarDetails/CarDetails';
+import PostCar from './Pages/PostCar/PostCar';
+import BookCar from './Pages/BookCar/BookCar';
+import MyBookings from './Pages/MyBookings/MyBookings';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-100 to-blue-300">
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
-        <h1 className="text-3xl font-bold text-blue-700 mb-4 text-center">
-          Car Rental App
-        </h1>
-        <p className="text-gray-600 text-center mb-6">
-          Welcome to your car rental platform. Start exploring and book your ride!
-        </p>
-        <div className="flex justify-center">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded transition">
-            Get Started
-          </button>
-        </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/cars/:id" element={<CarDetails />} />
+          <Route path="/post-car" element={<PostCar />} />
+          <Route path="/booking/:carId" element={<BookCar />} />
+          <Route path="/my-bookings" element={<MyBookings />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
