@@ -3,7 +3,7 @@ import { Eye, EyeOff, Mail, Lock, Car, ArrowLeft, User } from 'lucide-react';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: ''
   });
   const [showPassword, setShowPassword] = useState(false);
@@ -29,8 +29,8 @@ const Login = () => {
   const validateForm = () => {
     const newErrors = {};
     
-    if (!formData.username) {
-      newErrors.username = 'Username is required';
+    if (!formData.emailId) {
+      newErrors.emailId = 'Email ID is required';
     }
     
     if (!formData.password) {
