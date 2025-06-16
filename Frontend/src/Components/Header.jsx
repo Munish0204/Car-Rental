@@ -20,7 +20,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-white hover:text-blue-400 transition-colors">Home</a>
+            <Link to="/" className="text-white hover:text-blue-400 transition-colors">Home</Link>
             <a href="#about" className="text-white hover:text-blue-400 transition-colors">About</a>
             <a href="#services" className="text-white hover:text-blue-400 transition-colors">Services</a>
             <a href="#inventory" className="text-white hover:text-blue-400 transition-colors">Inventory</a>
@@ -39,14 +39,14 @@ const Header = () => {
                 <span className="text-white">info@topcar.com</span>
               </div>
             </div>
-            
+
             {/* Auth Buttons */}
             <div className="flex items-center space-x-3">
               <Link to="/login" className="text-white hover:text-blue-400 transition-colors font-medium">
                 Login
               </Link>
-              <Link 
-                to="/registration" 
+              <Link
+                to="/registration"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-all transform hover:scale-105"
               >
                 Register
@@ -54,7 +54,7 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden text-white hover:text-blue-400"
@@ -63,27 +63,30 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Navigation Menu */}
         {isMenuOpen && (
           <div className="md:hidden bg-gray-900 rounded-lg mt-2 py-4 px-4 border border-blue-900">
             <nav className="flex flex-col space-y-3">
-              <a href="#home" className="text-white hover:text-blue-400 transition-colors py-2">Home</a>
+              <Link to="/" className="text-white hover:text-blue-400 transition-colors py-2">Home</Link>
               <a href="#about" className="text-white hover:text-blue-400 transition-colors py-2">About</a>
               <a href="#services" className="text-white hover:text-blue-400 transition-colors py-2">Services</a>
               <a href="#inventory" className="text-white hover:text-blue-400 transition-colors py-2">Inventory</a>
               <a href="#contact" className="text-white hover:text-blue-400 transition-colors py-2">Contact</a>
-              
-              {/* Mobile Auth Buttons */}
+
+              {/* Auth Buttons */}
               <div className="border-t border-blue-900 pt-3 mt-3">
                 <div className="flex flex-col space-y-3 mb-4">
-                  <button className="text-white hover:text-blue-400 transition-colors py-2 text-left font-medium">
+                  <Link to="/login" className="text-white hover:text-blue-400 transition-colors py-2 text-left font-medium">
                     Login
-                  </button>
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-all text-center">
+                  </Link>
+                  <Link
+                    to="/registration"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-all text-center"
+                  >
                     Register
-                  </button>
+                  </Link>
                 </div>
-                
+
                 {/* Contact Info */}
                 <div className="flex items-center space-x-2 text-sm text-white mb-2">
                   <Phone className="h-4 w-4 text-blue-400" />

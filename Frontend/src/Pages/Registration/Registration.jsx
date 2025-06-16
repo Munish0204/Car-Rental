@@ -79,7 +79,7 @@ export default function TopCarRegistrationPage() {
     setApiError('');
     
     try {
-      const response = await fetch('http://192.168.149.249:8000/api/auth/register', {
+      const response = await fetch('http://localhost:8000/api/accounts/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
