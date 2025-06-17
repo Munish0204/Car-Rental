@@ -25,9 +25,11 @@ SECRET_KEY = 'django-insecure-3%&*lg@_xb@-9_mp=mjb0wr8za44hq_q0n@d&ty0p1)&w#&ku9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']  # Change this to your domain or IP in production
 
-
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins for development; restrict in production
+CORS_ALLOW_CREDENTIALS = True  # Allow cookies to be included in CORS requests
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,9 +42,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'accounts',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

@@ -85,14 +85,16 @@ export default function TopCarRegistrationPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: formData.name,
+          username: formData.name,
           email: formData.email,
           password: formData.password,
+          confirm_password: formData.confirmPassword,
           phone: formData.phone
         })
       });
       
       const data = await response.json();
+      console.log(data);
       
       if (response.ok) {
         setSuccess(true);
