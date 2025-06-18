@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Lock, Car, ArrowLeft, User } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,9 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -178,7 +182,7 @@ const Login = () => {
           {/* Sign up link */}
           <div className="mt-6 text-center text-gray-400">
             Don't have an account?{' '}
-            <a href="/register" className="text-blue-400 hover:text-blue-300 font-medium">
+            <a href="/registration" className="text-blue-400 hover:text-blue-300 font-medium">
               Sign up here
             </a>
           </div>

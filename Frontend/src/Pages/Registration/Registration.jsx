@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { User, Mail, Lock, Phone, Eye, EyeOff, CheckCircle, AlertCircle, Loader } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function TopCarRegistrationPage() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ export default function TopCarRegistrationPage() {
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
   const [apiError, setApiError] = useState('');
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -116,15 +118,15 @@ export default function TopCarRegistrationPage() {
     }
   };
 
-  if (success) {
+ if (success) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="text-center animate-fadeIn">
           <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4 animate-bounce" />
           <h2 className="text-3xl font-bold mb-4 text-green-400">Registration Successful!</h2>
           <p className="text-gray-300 mb-8">Welcome to TopCar! You can now start booking your rides.</p>
-          <button 
-            onClick={() => setSuccess(false)}
+          <button
+            onClick={() => navigate('/login')}
             className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-md font-semibold transition-colors duration-200"
           >
             Continue
@@ -326,11 +328,14 @@ export default function TopCarRegistrationPage() {
             </button>
           </form>
 
-          {/* Login Link */}
+          
           <div className="mt-6 text-center">
             <p className="text-gray-400">
               Already have an account?{' '}
-              <button className="text-blue-400 hover:text-blue-300 font-semibold transition-colors duration-200">
+              <button
+                onClick={() => navigate('/login')}
+                className="text-blue-400 hover:text-blue-300 font-semibold transition-colors duration-200"
+              >
                 Sign In
               </button>
             </p>

@@ -8,6 +8,8 @@ import CarDetails from './Pages/CarDetails/CarDetails';
 import PostCar from './Pages/PostCar/PostCar';
 import BookCar from './Pages/BookCar/BookCar';
 import MyBookings from './Pages/MyBookings/MyBookings';
+import Locations from "./Pages/Locations/Locations"
+import Booking from "./Pages/Booking/Booking"
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
           <Route path="/post-car" element={<PostCar />} />
           <Route path="/booking/:carId" element={<BookCar />} />
           <Route path="/my-bookings" element={<MyBookings />} />
+          <Route path="/locations" element={<Locations />} />
+          <Route path="/booking" element={<Booking />} />
+
         </Routes>
       </div>
     </Router>
